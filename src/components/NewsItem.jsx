@@ -1,16 +1,16 @@
-import image from '../assets/news-default-big.png'
+import image from '../assets/news-default-big.png';
 
-const NewsItem = ({title, description, src, url}) => {
+const NewsItem = ({ title, description, src, url, darkMode }) => {
   return (
-      <div className="card bg-dark text-light mb-3 d-inline-block my-3 mx-3 py-2 px-2" style={{maxWidth:"345px"}}>
-    <img src={src?src:image} style={{maxHeight:200, maxWidth:360}} className="card-img-top" alt="..."/>
-    <div className="card-body">
-        <h5 className="card-title">{title.slice(0,50)}</h5>
-        <p className="card-text">{description?description.slice(0.90):"Current Event, Something new just happened."}</p>
+    <div className={`card mb-3 d-inline-block my-3 mx-3 py-2 px-2 ${darkMode ? "bg-dark text-light" : "bg-light text-dark"}`} style={{ maxWidth: "345px" }}>
+      <img src={src ? src : image} style={{ maxHeight: 200, maxWidth: 360 }} className="card-img-top" alt="..." />
+      <div className="card-body">
+        <h5 className="card-title">{title.slice(0, 50)}</h5>
+        <p className="card-text">{description ? description.slice(0.90) : "Current Event, Something new just happened."}</p>
         <a href={url} className="btn btn-primary">Read More</a>
-    </div>
+      </div>
     </div>
   )
 }
 
-export default NewsItem
+export default NewsItem;
