@@ -4,7 +4,7 @@ const Navbar = ({ setCategory, toggleDarkMode }) => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#"><span className="badge bg-dark text-dark fs-4" onClick={() => setCategory("general")}>BTU News</span></a>
+        <a className="navbar-brand" href="#"><span className="badge bg-dark text-dark fs-4" onClick={() => setCategory("ge")}>BTU News</span></a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -26,7 +26,7 @@ const Navbar = ({ setCategory, toggleDarkMode }) => {
               <div className="nav-link" onClick={() => setCategory("entertainment")}>Entertainment</div>
             </li>
           </ul>
-          <button className="btn btn-secondary" onClick={toggleDarkMode}>Toggle Dark Mode</button>
+          <button className={`btn btn-secondary ms-auto`} onClick={toggleDarkMode}>Toggle Dark Mode</button>
         </div>
       </div>
     </nav>
