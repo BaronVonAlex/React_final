@@ -5,10 +5,10 @@ const NewsBoard = ({ category, darkMode }) => {
     const [articles, setArticle] = useState([]);
 
     useEffect(() => {
-        let url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${import.meta.env.VITE_API_KEY}`;
+        let url = `https://gnews.io/api/v4/top-headlines?category=${category}&lang=en&country=us&max=10&apikey=dd3431d99e6203519e38aa816e7bfffd`;
         fetch(url)
             .then(response => response.json())
-            .then(data => setArticle(data.articles || [])); // Ensuring articles is always an array
+            .then(data => setArticle(data.articles || []));
     }, [category]);
 
     return (
@@ -20,13 +20,13 @@ const NewsBoard = ({ category, darkMode }) => {
                         key={index}
                         title={news.title}
                         description={news.description}
-                        src={news.urlToImage}
+                        src={news.image}
                         url={news.url}
                         darkMode={darkMode}
                     />
                 ))
             ) : (
-                <p>No articles available</p> // Optional: display a message if no articles are found
+                <p>No articles available</p>
             )}
         </div>
     );

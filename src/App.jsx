@@ -12,7 +12,7 @@ export const App = () => {
   return (
     <div className={darkMode ? "dark" : "light"}>
       <Navbar setCategory={setCategory} toggleDarkMode={toggleDarkMode} />
-      <NewsBoard category={category} darkMode={darkMode} /> {/* Pass darkMode prop */}
+      <NewsBoard category={category} darkMode={darkMode} />
     </div>
   );
 }
