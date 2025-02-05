@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Navbar from "./components/navBar";
-import NewsBoard from "./components/newsBoard";
+import Navbar from "./components/Navbar";
+import NewsBoard from "./components/NewsBoard";
 import './styles/themes.css'; 
 
 export const App = () => {

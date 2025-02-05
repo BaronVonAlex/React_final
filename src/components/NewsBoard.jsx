@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import NewsItem from "./newsItem";
+import NewsItem from "./NewsItem";
 
 const NewsBoard = ({category, darkMode}) => {
     const [articles, setArticle] = useState([]);
