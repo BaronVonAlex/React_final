@@ -63,7 +63,6 @@
   width: 80%;
 }
 
-/* Responsive adjustments */
 @media (max-width: 991px) {
   .navbar-nav {
     margin-top: 1rem;
