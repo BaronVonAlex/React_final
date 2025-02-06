@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import users from "../data/users.json";
 import '../styles/LoginPage.css'
 
@@ -19,6 +20,10 @@ const LoginPage = ({ setUser, darkMode  }) => {
         setError("Invalid username or password");
       }
     };
+
+    const handleRegisterRedirect = () => {
+        navigate("/register");
+      };
   
     return (
         <div className={`login-page ${darkMode ? "dark" : "light"}`}>
@@ -45,6 +50,10 @@ const LoginPage = ({ setUser, darkMode  }) => {
           <button className={darkMode ? "btn-dark" : "btn-light"} onClick={handleLogin}>
             Login
           </button>
+
+          <div>
+            <p>Don't have an account? <Link to="/register">Register here</Link></p>
+        </div>
         </div>
       );
     };

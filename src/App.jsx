@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import NewsBoard from "./components/NewsBoard";
 import WeatherPage from "./components/WeatherPage";
 import LoginPage from "./components/LoginPage";
+import RegisterPage from "./components/RegisterPage";
 import './styles/themes.css';
 
 export const App = () => {
@@ -16,11 +17,16 @@ export const App = () => {
 
   const handleLogout = () => {
     setUser(null);
+    localStorage.removeItem('user');
     navigate("/login");
   };
 
   useEffect(() => {
-    // Apply dark or light class to the body element
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+
     if (darkMode) {
       document.body.classList.add('dark');
       document.body.classList.remove('light');
@@ -31,16 +37,23 @@ export const App = () => {
   }, [darkMode]);
 
   useEffect(() => {
-    if (!user) {
-      navigate("/login"); 
+    if (!user && window.location.pathname !== "/login" && window.location.pathname !== "/register") {
+      navigate("/login");
     }
   }, [user, navigate]);
+
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem('user', JSON.stringify(user)); 
+    }
+  }, [user]);
 
   return (
     <div>
       <Navbar setCategory={setCategory} toggleDarkMode={toggleDarkMode} user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/login" element={<LoginPage setUser={setUser} darkMode={darkMode}/>} />
+        <Route path="/login" element={<LoginPage setUser={setUser} darkMode={darkMode} />} />
+        <Route path="/register" element={<RegisterPage setUser={setUser} darkMode={darkMode} />} />
         <Route path="/" element={<NewsBoard category={category} darkMode={darkMode} />} />
         <Route path="/weather" element={<WeatherPage darkMode={darkMode} />} />
       </Routes>
