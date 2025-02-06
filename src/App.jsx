@@ -17,7 +17,7 @@ export const App = () => {
         <Navbar setCategory={setCategory} toggleDarkMode={toggleDarkMode} />
         <Routes>
           <Route path="/" element={<NewsBoard category={category} darkMode={darkMode} />} />
-          <Route path="/weather" element={<WeatherPage />} />
+          <Route path="/weather" element={<WeatherPage darkMode={darkMode}/>} />
         </Routes>
       </div>
     </Router>

@@ -1,0 +1,124 @@
+.weather-page {
+  font-family: 'Arial', sans-serif;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #ffffff, #f3f4f6);
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #2d3748;
+  font-weight: 700;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.city-input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  width: 70%;
+  background-color: #edf2f7;
+  color: #2d3748;
+  margin-right: 12px;
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.city-input::placeholder {
+  color: #a0aec0;
+}
+
+.fetch-btn {
+  padding: 10px 16px;
+  background-color: #3182ce;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.fetch-btn:hover {
+  background-color: #2b6cb0;
+}
+
+.error-message {
+  color: #e53e3e;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.weather-info, .forecast-info {
+  text-align: left;
+  padding: 16px;
+  background: #f7fafc;
+  border-radius: 12px;
+  margin-top: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.forecast-list {
+  list-style: none;
+  padding: 0;
+}
+
+.forecast-item {
+  background: #edf2f7;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 8px;
+  color: #2d3748;
+  font-weight: 500;
+}
+
+.dark-mode {
+  background: linear-gradient(135deg, #1a202c, #2d3748);
+  color: white;
+}
+
+.dark-mode .title {
+  color: #e2e8f0;
+}
+
+.dark-mode .city-input {
+  background-color: #4a5568;
+  color: white;
+}
+
+.dark-mode .city-input::placeholder {
+  color: #a0aec0;
+}
+
+.dark-mode .fetch-btn {
+  background-color: #63b3ed;
+  color: white;
+}
+
+.dark-mode .fetch-btn:hover {
+  background-color: #2b6cb0;
+}
+
+.dark-mode .error-message {
+  color: #f56565;
+}
+
+.dark-mode .weather-info, .dark-mode .forecast-info {
+  background: #2d3748;
+  color: white;
+}
+
+.dark-mode .forecast-item {
+  background-color: #4a5568;
+  color: white;
+}

@@ -1,6 +1,7 @@
 import { useState } from "react";
+import '../styles/WeatherPage.css';
 
-const WeatherPage = () => {
+const WeatherPage = ({ darkMode }) => {
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
   const [forecastData, setForecastData] = useState(null);
@@ -15,7 +16,7 @@ const WeatherPage = () => {
     }
 
     try {
-      setError(null); // Clear any previous errors
+      setError(null);
 
       const weatherResponse = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
@@ -47,20 +48,25 @@ const WeatherPage = () => {
   };
 
   return (
-    <div>
-      <h1>Weather Page</h1>
-      <input
-        type="text"
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-        placeholder="Enter city name"
-      />
-      <button onClick={fetchWeatherData}>Get Weather</button>
+    <div className={`weather-page ${darkMode ? "dark-mode" : ""}`}>
+      <h1 className="title">Weather</h1>
+      <div className="input-container">
+        <input
+          className="city-input"
+          type="text"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+          placeholder="Enter city name"
+        />
+        <button className="fetch-btn" onClick={fetchWeatherData}>
+          Get Weather
+        </button>
+      </div>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p className="error-message">{error}</p>}
 
       {weatherData && (
-        <div>
+        <div className="weather-info">
           <h2>Current Weather in {weatherData.name}</h2>
           <p>Temperature: {weatherData.main.temp} °C</p>
           <p>Weather: {weatherData.weather[0].description}</p>
@@ -68,11 +74,11 @@ const WeatherPage = () => {
       )}
 
       {forecastData && (
-        <div>
+        <div className="forecast-info">
           <h2>4-Day Forecast</h2>
-          <ul>
+          <ul className="forecast-list">
             {forecastData.list.slice(0, 4).map((entry, index) => (
-              <li key={index}>
+              <li key={index} className="forecast-item">
                 {entry.dt_txt} - {entry.main.temp} °C - {entry.weather[0].description}
               </li>
             ))}
